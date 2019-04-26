@@ -49,7 +49,7 @@ module VideoThumb
       regex = /^https?:\/\/(?:.*?)\.?(vimeo)\.com\/(\d+).*$/
       url.gsub(regex) do
         vimeo_video_id = $2
-        vimeo_video_json_url = 'http://vimeo.com/api/v2/video/%s.json' % vimeo_video_id
+        vimeo_video_json_url = 'https://vimeo.com/api/v2/video/%s.json' % vimeo_video_id
         image = JSON.parse(open(vimeo_video_json_url).read).first[vimeo_size] rescue nil
         return image
       end
